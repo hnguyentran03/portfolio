@@ -53,16 +53,22 @@
 .viewAll {
     display: block;
     width: fit-content;
-    margin: 37px auto 0;
-    font-size: 20px;
-    font-weight: 500;
+    margin: 40px auto 0;
+    padding: 12px 36px;
+    font-size: 22px;
+    font-weight: 600;
     letter-spacing: 0.5px;
     color: var(--color-text-title);
     text-decoration: none;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    background: var(--color-primary);
+    border-radius: 100px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .viewAll:hover {
-    color: var(--color-text-bold);
-    transform: translateX(4px);
+    color: var(--color-text-title);
+    background: var(--color-text-bold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.35);
 }

@@ -36,7 +36,8 @@
     "description": "This is a project made to learn the data analysis and machine learning models to detect transaction frauds.",
     "skills": ["Jupyter", "ML"],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/card_detection"
+    "source": "https://github.com/hnguyentran03/card_detection",
+    "featured": true
   },
   {
     "title": "Tetris",
@@ -45,7 +46,8 @@
     "description": "This is a project adapted from a homework from 15-112 at CMU with multiple additional features including an AI.",
     "skills": ["Python", "AI"],
     "demo": "https://github.com/hnguyentran03/tetris/releases/latest",
-    "source": "https://github.com/hnguyentran03/tetris"
+    "source": "https://github.com/hnguyentran03/tetris",
+    "featured": true
   },
   {
     "title": "112maze",
@@ -54,6 +56,7 @@
     "description": "A 15-112 term project with the focus on implementing maze-generation, pathfinding and raycasting.",
     "skills": ["Python"],
     "demo": "https://github.com/hnguyentran03/112-tp/releases/latest",
-    "source": "https://github.com/hnguyentran03/112-tp"
+    "source": "https://github.com/hnguyentran03/112-tp",
+    "featured": true
   }
 ]
