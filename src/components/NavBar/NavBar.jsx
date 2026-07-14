@@ -3,6 +3,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 import styles from "./NavBar.module.css";
 import { getImageUrl } from "../../utils";
@@ -11,7 +12,7 @@ export const NavBar = () => {
   return (
     <Navbar expand="lg" className={styles.navbarSticky}>
       <Container>
-        <Navbar.Brand href="#" className={styles.navbarBrand}>
+        <Navbar.Brand as={Link} to="/" className={styles.navbarBrand}>
           <img
             src={getImageUrl("hero/heroImage.png")}
             alt="Home"
@@ -23,16 +24,16 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#about" className={styles.navbarLink}>
+            <Nav.Link href="/#about" className={styles.navbarLink}>
               About
             </Nav.Link>
-            <Nav.Link href="#experience" className={styles.navbarLink}>
+            <Nav.Link href="/#experience" className={styles.navbarLink}>
               Experience
             </Nav.Link>
-            <Nav.Link href="#projects" className={styles.navbarLink}>
+            <Nav.Link href="/#projects" className={styles.navbarLink}>
               Projects
             </Nav.Link>
-            <Nav.Link href="#contact" className={styles.navbarLink}>
+            <Nav.Link href="/#contact" className={styles.navbarLink}>
               Contact
             </Nav.Link>
           </Nav>

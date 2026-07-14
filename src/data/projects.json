@@ -6,7 +6,8 @@
     "description": "Command line tool to verify file integrity by using cryptographic hashing algorithms to detect changes.",
     "skills": ["Rust", "SQL"],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/integrity-check"
+    "source": "https://github.com/hnguyentran03/integrity-check",
+    "featured": true
   },  
   {
     "title": "PDF Translator",
@@ -15,7 +16,8 @@
     "description": "Application to translate PDFs to any language while keeping the original format using GPT models for translations.",
     "skills": ["Python", "OpenAI"],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/pdf-translator"
+    "source": "https://github.com/hnguyentran03/pdf-translator",
+    "featured": true
   },
   {
     "title": "Steam Game Embeddings",
@@ -24,7 +26,8 @@
     "description": "Visualizations of steam game descriptions using SBERT alongside dimension reduction and query generation for search.",
     "skills": ["Jupyter", "ML"],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/game-embeddings"
+    "source": "https://github.com/hnguyentran03/game-embeddings",
+    "featured": true
   },
   {
     "title": "Fraud Detection",
@@ -33,7 +36,8 @@
     "description": "This is a project made to learn the data analysis and machine learning models to detect transaction frauds.",
     "skills": ["Jupyter", "ML"],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/card_detection"
+    "source": "https://github.com/hnguyentran03/card_detection",
+    "featured": true
   },
   {
     "title": "Tetris",
@@ -42,7 +46,8 @@
     "description": "This is a project adapted from a homework from 15-112 at CMU with multiple additional features including an AI.",
     "skills": ["Python", "AI"],
     "demo": "https://github.com/hnguyentran03/tetris/releases/latest",
-    "source": "https://github.com/hnguyentran03/tetris"
+    "source": "https://github.com/hnguyentran03/tetris",
+    "featured": true
   },
   {
     "title": "112maze",
@@ -51,6 +56,7 @@
     "description": "A 15-112 term project with the focus on implementing maze-generation, pathfinding and raycasting.",
     "skills": ["Python"],
     "demo": "https://github.com/hnguyentran03/112-tp/releases/latest",
-    "source": "https://github.com/hnguyentran03/112-tp"
+    "source": "https://github.com/hnguyentran03/112-tp",
+    "featured": true
   }
 ]
