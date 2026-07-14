@@ -1,13 +1,13 @@
 {
   "name": "portfolio",
   "private": true,
-  "homepage": "https://hnguyentran03.github.io/",
+  "homepage": "https://hnguyentran.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "aws s3 sync build s3://portfolio-692227917845-us-east-1-an --delete && aws cloudfront create-invalidation --distribution-id E2K4Z2U2N6IEKA --paths '/*'",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -25,7 +25,8 @@
     "nodemailer": "^6.9.12",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.18.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.29",
