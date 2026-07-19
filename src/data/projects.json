@@ -48,7 +48,7 @@
     "imageSrc": "projects/game-embedding.png",
     "description": "Visualizations of steam game descriptions using SBERT alongside dimension reduction and query generation for search.",
     "longDescription": [
-      "Steam game descriptions are embedded with a Sentence Transformer and visualized using multiple dimension reduction techniques — PCA, t-SNE, and PaCMAP — to explore how games cluster by their content.",
+      "Steam game descriptions are embedded with a Sentence Transformer and visualized using multiple dimension reduction techniques, including PCA, t-SNE, and PaCMAP, to explore how games cluster by their content.",
       "The model is also fine-tuned on a variety of generated queries so that games can be searched by genre, and LIME is used to explain which parts of a query and description led to a game being matched. The data comes from the Steam Games Dataset on Kaggle."
     ],
     "features": [
@@ -69,7 +69,7 @@
     "imageSrc": "projects/dec-tree.png",
     "description": "This is a project made to learn the data analysis and machine learning models to detect transaction frauds.",
     "longDescription": [
-      "A machine learning project exploring different models — and proper handling of heavily imbalanced data — to detect fraudulent credit card transactions, built on a public fraud-detection dataset from Kaggle.",
+      "A machine learning project exploring different models and proper handling of heavily imbalanced data to detect fraudulent credit card transactions, built on a public fraud-detection dataset from Kaggle.",
       "After exploratory data analysis to identify patterns between features, the class imbalance was addressed with SMOTE oversampling and Tomek Links undersampling. Random Forest, AdaBoost, and XGBoost models were trained and compared, and the results were analyzed with SHAP values to understand feature importance and relationships."
     ],
     "features": [
@@ -113,7 +113,7 @@
     "description": "A 15-112 term project with the focus on implementing maze-generation, pathfinding and raycasting.",
     "longDescription": [
       "A 15-112 term project: a maze game that uses raycasting to render 3D visuals. The objective is to collect a key and reach the end of the maze, with key and enemy placements randomized on every run.",
-      "Difficulty increases as you progress — longer mazes built with different maze-generation algorithms and enemies driven by different pathfinding algorithms. A toggleable minimap, a path-hint that reveals the way to the next objective, and full camera controls round out the game."
+      "Difficulty increases as you progress, with longer mazes built with different maze-generation algorithms and enemies driven by different pathfinding algorithms. A toggleable minimap, a path-hint that reveals the way to the next objective, and full camera controls round out the game."
     ],
     "features": [
       "3D visuals rendered with raycasting",
