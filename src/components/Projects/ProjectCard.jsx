@@ -1,13 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./ProjectCard.module.css";
 import { getImageUrl } from "../../utils";
 
 export const ProjectCard = ({
-  project: { title, date, imageSrc, description, skills, demo, source },
+  project: { slug, title, date, imageSrc, description, skills, demo, source },
 }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => navigate(`/projects/${slug}`)}
+    >
       <img
         src={getImageUrl(imageSrc)}
         alt={`Image of ${title}`}
@@ -33,6 +39,7 @@ export const ProjectCard = ({
             href={source}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
           >
             Source
           </a>
@@ -43,9 +50,10 @@ export const ProjectCard = ({
             href={demo}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
           >
             Demo
-          </a> 
+          </a>
         )}
       </div>
     </div>
