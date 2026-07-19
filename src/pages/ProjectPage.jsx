@@ -31,7 +31,10 @@ export const ProjectPage = () => {
     gallery,
   } = project;
 
-  const paragraphs = longDescription?.length ? longDescription : [description];
+  const paragraphs =
+    Array.isArray(longDescription) && longDescription.length
+      ? longDescription
+      : [description];
 
   return (
     <>
@@ -83,7 +86,7 @@ export const ProjectPage = () => {
                   <img
                     key={id}
                     src={getImageUrl(image)}
-                    alt={`Screenshot of ${title}`}
+                    alt={`Screenshot ${id + 1} of ${title}`}
                     className={styles.galleryImage}
                   />
                 );

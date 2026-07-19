@@ -12,7 +12,14 @@ export const ProjectCard = ({
   return (
     <div
       className={styles.container}
+      role="link"
+      tabIndex={0}
       onClick={() => navigate(`/projects/${slug}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          navigate(`/projects/${slug}`);
+        }
+      }}
     >
       <img
         src={getImageUrl(imageSrc)}
