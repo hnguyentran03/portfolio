@@ -5,6 +5,16 @@
     "date": "Jan 2026",
     "imageSrc": "projects/integrity-check.png",
     "description": "Command line tool to verify file integrity by using cryptographic hashing algorithms to detect changes.",
+    "longDescription": [
+      "A command line tool that verifies the integrity of files by computing cryptographic hashes with SHA-256 and comparing them against a stored baseline. It accepts either a single log file or an entire directory, and clearly reports any discrepancies that indicate possible file tampering.",
+      "The tool works in three modes: init computes and securely stores the hashes of the given file or directory, check re-computes them and compares against the stored baseline, and update re-initializes the baseline after intentional changes."
+    ],
+    "features": [
+      "Accepts a single file or an entire directory as input",
+      "Computes SHA-256 hashes and stores them securely on first use",
+      "Reports discrepancies that indicate possible file tampering",
+      "init / check / update commands for initializing, verifying, and re-baselining hashes"
+    ],
     "skills": ["Rust", "SQL"],
     "demo": "",
     "source": "https://github.com/hnguyentran03/integrity-check",
@@ -16,6 +26,16 @@
     "date": "Jul 2024",
     "imageSrc": "projects/pdf-translate.png",
     "description": "Application to translate PDFs to any language while keeping the original format using GPT models for translations.",
+    "longDescription": [
+      "An application that translates any PDF into a desired language while keeping the original layout intact. PyMuPDF is used to extract the text and structure of the document and to modify and rebuild the PDF, while OpenAI's GPT-4o performs the translations.",
+      "Drop a PDF into the project's pdfs folder, run the main script, and get back a translated document that still looks like the original."
+    ],
+    "features": [
+      "Translates PDFs into any target language",
+      "Preserves the original document formatting",
+      "PyMuPDF for PDF text extraction and reconstruction",
+      "OpenAI GPT-4o for the translations"
+    ],
     "skills": ["Python", "OpenAI"],
     "demo": "",
     "source": "https://github.com/hnguyentran03/pdf-translator",
@@ -27,6 +47,16 @@
     "date": "Jun - Jul 2024",
     "imageSrc": "projects/game-embedding.png",
     "description": "Visualizations of steam game descriptions using SBERT alongside dimension reduction and query generation for search.",
+    "longDescription": [
+      "Steam game descriptions are embedded with a Sentence Transformer and visualized using multiple dimension reduction techniques — PCA, t-SNE, and PaCMAP — to explore how games cluster by their content.",
+      "The model is also fine-tuned on a variety of generated queries so that games can be searched by genre, and LIME is used to explain which parts of a query and description led to a game being matched. The data comes from the Steam Games Dataset on Kaggle."
+    ],
+    "features": [
+      "Sentence Transformer (SBERT) embeddings of game descriptions",
+      "Visualizations with PCA, t-SNE, and PaCMAP dimension reduction",
+      "Fine-tuned on generated queries to support genre-based game search",
+      "LIME explanations for why a game matches a search query"
+    ],
     "skills": ["Jupyter", "ML"],
     "demo": "",
     "source": "https://github.com/hnguyentran03/game-embeddings",
@@ -38,6 +68,16 @@
     "date": "Jan 2024",
     "imageSrc": "projects/dec-tree.png",
     "description": "This is a project made to learn the data analysis and machine learning models to detect transaction frauds.",
+    "longDescription": [
+      "A machine learning project exploring different models — and proper handling of heavily imbalanced data — to detect fraudulent credit card transactions, built on a public fraud-detection dataset from Kaggle.",
+      "After exploratory data analysis to identify patterns between features, the class imbalance was addressed with SMOTE oversampling and Tomek Links undersampling. Random Forest, AdaBoost, and XGBoost models were trained and compared, and the results were analyzed with SHAP values to understand feature importance and relationships."
+    ],
+    "features": [
+      "Exploratory data analysis of transaction patterns",
+      "SMOTE and Tomek Links to handle imbalanced classes",
+      "Random Forest, AdaBoost, and XGBoost model comparison",
+      "SHAP value analysis of feature importance"
+    ],
     "skills": ["Jupyter", "ML"],
     "demo": "",
     "source": "https://github.com/hnguyentran03/card_detection",
@@ -49,6 +89,17 @@
     "date": "Oct 2021 - Feb 2022",
     "imageSrc": "projects/tetris.png",
     "description": "This is a project adapted from a homework from 15-112 at CMU with multiple additional features including an AI.",
+    "longDescription": [
+      "Adapted from the CMU 15-112 Tetris homework and rebuilt with object-oriented design, then extended with a scoreboard, a next-piece preview, piece holding, and an outline showing where the current piece will drop.",
+      "The headline feature is an AI player that simulates every possible move and picks the best one using a heuristic. The heuristic ideas are based on the well-known near-perfect Tetris player, with the weights tuned by a custom genetic algorithm. Scores persist between sessions in an application data folder."
+    ],
+    "features": [
+      "Object-oriented rebuild of the 15-112 Tetris base",
+      "Scoreboard with scores persisted between sessions",
+      "Next-piece preview, piece holding, and drop outline",
+      "AI that simulates all possible moves and picks the best via a heuristic",
+      "Custom genetic algorithm to tune the AI's heuristic weights"
+    ],
     "skills": ["Python", "AI"],
     "demo": "https://github.com/hnguyentran03/tetris/releases/latest",
     "source": "https://github.com/hnguyentran03/tetris",
@@ -60,6 +111,17 @@
     "date": "Nov - Dec 2021",
     "imageSrc": "projects/maze.png",
     "description": "A 15-112 term project with the focus on implementing maze-generation, pathfinding and raycasting.",
+    "longDescription": [
+      "A 15-112 term project: a maze game that uses raycasting to render 3D visuals. The objective is to collect a key and reach the end of the maze, with key and enemy placements randomized on every run.",
+      "Difficulty increases as you progress — longer mazes built with different maze-generation algorithms and enemies driven by different pathfinding algorithms. A toggleable minimap, a path-hint that reveals the way to the next objective, and full camera controls round out the game."
+    ],
+    "features": [
+      "3D visuals rendered with raycasting",
+      "Multiple maze-generation algorithms as levels progress",
+      "Enemies driven by different pathfinding algorithms",
+      "Path hints to the next objective and a toggleable minimap",
+      "Randomized key and enemy placement every run"
+    ],
     "skills": ["Python"],
     "demo": "https://github.com/hnguyentran03/112-tp/releases/latest",
     "source": "https://github.com/hnguyentran03/112-tp",
