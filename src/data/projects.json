@@ -1,5 +1,6 @@
 [
   {
+    "slug": "integrity-check",
     "title": "File Integrity Checker",
     "date": "Jan 2026",
     "imageSrc": "projects/integrity-check.png",
@@ -8,8 +9,9 @@
     "demo": "",
     "source": "https://github.com/hnguyentran03/integrity-check",
     "featured": true
-  },  
+  },
   {
+    "slug": "pdf-translator",
     "title": "PDF Translator",
     "date": "Jul 2024",
     "imageSrc": "projects/pdf-translate.png",
@@ -20,6 +22,7 @@
     "featured": true
   },
   {
+    "slug": "game-embeddings",
     "title": "Steam Game Embeddings",
     "date": "Jun - Jul 2024",
     "imageSrc": "projects/game-embedding.png",
@@ -30,6 +33,7 @@
     "featured": true
   },
   {
+    "slug": "fraud-detection",
     "title": "Fraud Detection",
     "date": "Jan 2024",
     "imageSrc": "projects/dec-tree.png",
@@ -40,6 +44,7 @@
     "featured": true
   },
   {
+    "slug": "tetris",
     "title": "Tetris",
     "date": "Oct 2021 - Feb 2022",
     "imageSrc": "projects/tetris.png",
@@ -50,6 +55,7 @@
     "featured": true
   },
   {
+    "slug": "112maze",
     "title": "112maze",
     "date": "Nov - Dec 2021",
     "imageSrc": "projects/maze.png",
