@@ -5,11 +5,12 @@
   flex-direction: column;
   border-radius: 10px;
   background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-dark) 100%);
-  box-shadow: 0 16px 14px 0 #04152d;
+  box-shadow: 0 16px 14px 0 var(--color-shadow);
   padding: 18px 24px;
-  width: 350px;
-  height: 700px;
+  width: 420px;
+  height: 640px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .image {
@@ -49,7 +50,8 @@
 
 .skills {
   width: 100%;
-  margin-top: 14px;
+  /* pinned to the card bottom so pills line up across cards */
+  margin-top: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -57,40 +59,18 @@
   list-style: none;
   margin-left: -30px;
   flex-shrink: 0;
+  /* one row of pills (36px + slack) — skills that wrap past the first line are hidden */
+  max-height: 38px;
+  overflow: hidden;
 }
 
 .skill {
   font-size: 25px;
   font-weight: 400;
+  /* fixed line-height keeps pill height at 36px so the row clamp never clips it */
+  line-height: 30px;
   border-radius: 100px;
-  background: var(--color-dark);
+  background: var(--color-pill-bg);
+  border: 1px solid var(--color-pill-border);
   padding: 2px 22px;
-}
-
-.links {
-  width: 100%;
-  margin-top: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-shrink: 0;
-}
-
-.sourceLink {
-  text-decoration: none;
-  color: var(--color-text-title);
-  font-size: 30px;
-  font-weight: 600;
-  border-radius: 100px;
-  background: var(--color-primary);
-  padding: 1px 22px;
-}
-
-.demoLink {
-  text-decoration: none;
-  color: var(--color-text-title);
-  font-size: 30px;
-  font-weight: 600;
-  border-radius: 100px;
-  background: var(--color-secondary);
-  padding: 1px 22px;
 }

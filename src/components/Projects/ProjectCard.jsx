@@ -1,13 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./ProjectCard.module.css";
 import { getImageUrl } from "../../utils";
 
 export const ProjectCard = ({
-  project: { title, date, imageSrc, description, skills, demo, source },
+  project: { slug, title, date, imageSrc, description, skills },
 }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      role="link"
+      tabIndex={0}
+      onClick={() => navigate(`/projects/${slug}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          navigate(`/projects/${slug}`);
+        }
+      }}
+    >
       <img
         src={getImageUrl(imageSrc)}
         alt={`Image of ${title}`}
@@ -26,28 +39,6 @@ export const ProjectCard = ({
           );
         })}
       </ul>
-      <div className={styles.links}>
-        {source && (
-          <a
-            className={styles.sourceLink}
-            href={source}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Source
-          </a>
-        )}
-        {demo && (
-          <a
-            className={styles.demoLink}
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Demo
-          </a> 
-        )}
-      </div>
     </div>
   );
 };
