@@ -1,5 +1,88 @@
 [
   {
+    "slug": "steam-to-spotify",
+    "title": "Steam to Spotify",
+    "date": "Jul 2026",
+    "imageSrc": "projects/steam-to-spotify.png",
+    "description": "Web app that turns a Steam library into a Spotify playlist by matching every game you've played to its official soundtrack.",
+    "longDescription": [
+      "A five-step wizard that turns Steam playtime into a soundtrack playlist. Enter a Steam ID (SteamID64, vanity name, or profile URL) and the app pulls every game played past an adjustable threshold, searches Spotify for each one's official soundtrack, and hands you a shareable playlist or a copyable track list with Spotify links.",
+      "Since Spotify has no official-soundtrack flag, a custom scoring heuristic ranks candidate albums, favoring exact-title official releases while disqualifying covers, tributes, and 8-bit/piano rearrangements. An interactive review step lets you pick multiple albums per game (base OST + DLC), exclude games, or search manually when the auto-match isn't confident.",
+      "Built to be resilient: one bad match never sinks the batch, Spotify calls are cached in SQLite, and known Spotify development-mode restrictions have explicit fallbacks. Playlist creation works for anonymous users via a bot-account refresh token, with no database and no user login."
+    ],
+    "features": [
+      "Imports a Steam library from a SteamID64, vanity name, or profile URL and filters by playtime",
+      "Heuristic soundtrack matching that scores and ranks Spotify albums, rejecting covers and rearrangements",
+      "Interactive review step to pick multiple albums per game, exclude games, or manually search Spotify",
+      "Exports one track, the top 5, or the full album per release as a copyable list or a real public Spotify playlist",
+      "Per-game error degradation, SQLite-backed caching, and rate limiting for resilience"
+    ],
+    "skills": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "SQL",
+      "Steam API",
+      "Spotify API"
+    ],
+    "demo": "https://ost.hnguyentran.com/",
+    "source": "https://github.com/hnguyentran03/steam_to_spotify"
+  },
+  {
+    "slug": "overwatch-stats",
+    "title": "Overwatch Stats",
+    "date": "Jun 2026 - Jul 2026",
+    "imageSrc": "projects/overwatch-stats.png",
+    "description": "Web app for logging Overwatch competitive matches and analyzing hero, map, and trend performance, with AI-powered scoreboard autofill.",
+    "longDescription": [
+      "A full-stack web application for logging Overwatch competitive matches and analyzing performance over time. A Flask REST API over a SQLAlchemy data model serves a React + TypeScript dashboard where you can search any battle tag to explore win rates per hero, per map, and per role, drill into detailed stat breakdowns, and view trends grouped by day, week, or month.",
+      "Match entry enforces real game rules: valid 5v5 and 6v6 team compositions, role-locked hero swaps, and per-team ban limits. An optional scoreboard autofill feature sends an end-of-match screenshot to a Claude vision model along with a labeled grid of hero portraits; the model identifies each player's hero and reads their stat line, filling the form automatically behind a rolling rate limit."
+    ],
+    "features": [
+      "Full match logging with enforced 5v5/6v6 team composition, role-locked hero swaps, and per-team ban limits",
+      "AI scoreboard autofill, where a Claude vision model reads a screenshot and fills every player's hero and stats",
+      "Player dashboard with overall, per-role, per-hero, and per-map win rates plus drill-down detail views",
+      "Trend analysis of win rate and match volume grouped by day, week, or month",
+      "Ranked/unranked and team-size filters that persist across page refreshes",
+      "Deployed on AWS Lightsail behind Caddy with automatic HTTPS"
+    ],
+    "skills": [
+      "Python",
+      "Flask",
+      "PostgreSQL",
+      "React",
+      "TypeScript",
+      "Claude API"
+    ],
+    "demo": "https://ow.hnguyentran.com/",
+    "source": "https://github.com/hnguyentran03/overwatch_stats"
+  },
+  {
+    "slug": "video-player",
+    "title": "Video Player",
+    "date": "Jan 2026",
+    "imageSrc": "projects/video-player.png",
+    "description": "Browser-based MPEG-DASH video player for experimenting with adaptive bitrate algorithms under emulated network conditions.",
+    "longDescription": [
+      "A vanilla-JS, no-build MPEG-DASH video player built on dash.js for experimenting with Adaptive Bitrate (ABR) algorithms. It plays any DASH manifest and lets you swap at runtime between custom ABR rules, including a BBA-0 / throughput hybrid, and dash.js built-ins like BOLA, L2A, and LoLP, rebuilding the player with the selected rule.",
+      "Network conditions are emulated for real: a service worker meters media-segment download bytes to a capped rate, so dash.js's throughput estimate genuinely reflects the cap and the ABR rules react to it. A variable-bandwidth mode drives the cap with a random walk to mimic real network congestion, and a live canvas strip chart plots throughput, the emulated cap, the playing bitrate, and buffer level over a rolling 60-second window with quality-switch markers and a hover crosshair."
+    ],
+    "features": [
+      "Plays any DASH manifest URL with the Sintel test stream as a default",
+      "Switchable ABR rules at runtime: custom rules (BBA-0/throughput hybrid, lowest, highest) and dash.js built-ins (Throughput, BOLA, L2A, LoLP, and more)",
+      "Real network emulation via a service worker that throttles segment downloads to preset caps from 300 kbps to 5 Mbps",
+      "Variable-bandwidth mode that drifts the cap with a configurable random walk to simulate network congestion",
+      "Live metrics chart sampling throughput, cap, playing bitrate, and buffer level every 500 ms with quality-switch markers and a hover crosshair"
+    ],
+    "skills": [
+      "JavaScript",
+      "dash.js"
+    ],
+    "demo": "https://video.hnguyentran.com/",
+    "source": "https://github.com/hnguyentran03/video_player"
+  },
+  {
     "slug": "integrity-check",
     "title": "File Integrity Checker",
     "date": "Jan 2026",
@@ -15,7 +98,10 @@
       "Reports discrepancies that indicate possible file tampering",
       "init / check / update commands for initializing, verifying, and re-baselining hashes"
     ],
-    "skills": ["Rust", "SQL"],
+    "skills": [
+      "Rust",
+      "SQL"
+    ],
     "demo": "",
     "source": "https://github.com/hnguyentran03/integrity-check",
     "featured": true
@@ -36,7 +122,10 @@
       "PyMuPDF for PDF text extraction and reconstruction",
       "OpenAI GPT-4o for the translations"
     ],
-    "skills": ["Python", "OpenAI"],
+    "skills": [
+      "Python",
+      "OpenAI"
+    ],
     "demo": "",
     "source": "https://github.com/hnguyentran03/pdf-translator",
     "featured": true
@@ -57,8 +146,11 @@
       "Fine-tuned on generated queries to support genre-based game search",
       "LIME explanations for why a game matches a search query"
     ],
-    "skills": ["Jupyter", "ML"],
-    "demo": "",
+    "skills": [
+      "Jupyter",
+      "ML"
+    ],
+    "demo": "https://game-embeddings-h6vxvexnktqdz4rwug9qv4.streamlit.app/",
     "source": "https://github.com/hnguyentran03/game-embeddings",
     "featured": true
   },
@@ -78,8 +170,11 @@
       "Random Forest, AdaBoost, and XGBoost model comparison",
       "SHAP value analysis of feature importance"
     ],
-    "skills": ["Jupyter", "ML"],
-    "demo": "",
+    "skills": [
+      "Jupyter",
+      "ML"
+    ],
+    "demo": "https://carddetection-iswurjrr9vtq25pagmpjrr.streamlit.app/",
     "source": "https://github.com/hnguyentran03/card_detection",
     "featured": true
   },
@@ -100,7 +195,11 @@
       "AI that simulates all possible moves and picks the best via a heuristic",
       "Custom genetic algorithm to tune the AI's heuristic weights"
     ],
-    "skills": ["Python", "AI"],
+    "skills": [
+      "Python",
+      "AI",
+      "tkinter"
+    ],
     "demo": "https://github.com/hnguyentran03/tetris/releases/latest",
     "source": "https://github.com/hnguyentran03/tetris",
     "featured": true
@@ -122,7 +221,10 @@
       "Path hints to the next objective and a toggleable minimap",
       "Randomized key and enemy placement every run"
     ],
-    "skills": ["Python"],
+    "skills": [
+      "Python",
+      "tkinter"
+    ],
     "demo": "https://github.com/hnguyentran03/112-tp/releases/latest",
     "source": "https://github.com/hnguyentran03/112-tp",
     "featured": true
