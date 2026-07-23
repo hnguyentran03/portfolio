@@ -17,8 +17,16 @@
       "imageSrc": "skills/javascript.png"
     },
     {
+      "title": "TypeScript",
+      "imageSrc": "skills/typescript.png"
+    },
+    {
       "title": "Rust",
       "imageSrc": "skills/rust.png"
+    },
+    {
+      "title": "Godot",
+      "imageSrc": "skills/godot.png"
     },
     {
       "title": "Git",
