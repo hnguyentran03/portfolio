@@ -5,7 +5,7 @@ import styles from "./ProjectCard.module.css";
 import { getImageUrl } from "../../utils";
 
 export const ProjectCard = ({
-  project: { slug, title, date, imageSrc, description, skills, demo, source },
+  project: { slug, title, date, imageSrc, description, skills },
 }) => {
   const navigate = useNavigate();
 
@@ -39,30 +39,6 @@ export const ProjectCard = ({
           );
         })}
       </ul>
-      <div className={styles.links}>
-        {source && (
-          <a
-            className={styles.sourceLink}
-            href={source}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Source
-          </a>
-        )}
-        {demo && (
-          <a
-            className={styles.demoLink}
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Demo
-          </a>
-        )}
-      </div>
     </div>
   );
 };

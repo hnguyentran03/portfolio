@@ -39,7 +39,8 @@
     font-size: 20px;
     font-weight: 400;
     border-radius: 100px;
-    background: var(--color-dark);
+    background: var(--color-pill-bg);
+    border: 1px solid var(--color-pill-border);
     padding: 2px 22px;
 }
 
@@ -98,39 +99,65 @@
     gap: 24px;
 }
 
-.sourceLink {
+.sourceLink,
+.demoLink {
+    display: inline-block;
     text-decoration: none;
     color: var(--color-text-title);
     font-size: 25px;
     font-weight: 600;
     border-radius: 100px;
+    padding: 6px 32px;
+    box-shadow: 0 4px 14px var(--color-shadow-soft);
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sourceLink {
     background: var(--color-primary);
-    padding: 4px 28px;
 }
 
 .demoLink {
-    text-decoration: none;
-    color: var(--color-text-title);
-    font-size: 25px;
-    font-weight: 600;
-    border-radius: 100px;
     background: var(--color-secondary);
-    padding: 4px 28px;
+}
+
+.sourceLink:hover,
+.demoLink:hover {
+    background: var(--color-text-bold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-glow);
+}
+
+.sourceLink:active,
+.demoLink:active {
+    background: var(--color-text-bold);
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 170, 255, 0.5);
+}
+
+.sourceLink:focus-visible,
+.demoLink:focus-visible {
+    outline: 2px solid var(--color-text-bold);
+    outline-offset: 3px;
 }
 
 .back {
     display: block;
     width: fit-content;
     margin: 50px auto 0;
+    padding: 12px 36px;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
     color: var(--color-text-title);
     text-decoration: none;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    background: var(--color-primary);
+    border-radius: 100px;
+    box-shadow: 0 4px 14px var(--color-shadow-soft);
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .back:hover {
-    color: var(--color-text-bold);
-    transform: translateX(-4px);
+    background: var(--color-text-bold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-glow);
 }

@@ -7,6 +7,11 @@
     --color-secondary: #003962;
     --color-dark: #01233a;
     --color-bg: #01101c;
+    --color-pill-bg: rgba(0, 170, 255, 0.14);
+    --color-pill-border: rgba(0, 170, 255, 0.4);
+    --color-shadow: #04152d;
+    --color-shadow-soft: rgba(0, 0, 0, 0.35);
+    --color-glow: rgba(0, 170, 255, 0.35);
 
     /* Fonts */
     --font-robot: "Roboto";

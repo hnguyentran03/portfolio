@@ -34,7 +34,7 @@
 .projects:has(.project:hover) .project:not(:hover) {
     opacity: 0.5;
     filter: blur(3px);
-    box-shadow: 0 0px 0px 0 #04152d;
+    box-shadow: 0 0px 0px 0 var(--color-shadow);
 }
 
 .projects .project:hover {
@@ -62,7 +62,7 @@
     text-decoration: none;
     background: var(--color-primary);
     border-radius: 100px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 14px var(--color-shadow-soft);
     transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -70,5 +70,5 @@
     color: var(--color-text-title);
     background: var(--color-text-bold);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.35);
+    box-shadow: 0 6px 20px var(--color-glow);
 }
