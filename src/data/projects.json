@@ -32,7 +32,7 @@
   {
     "slug": "overwatch-stats",
     "title": "Overwatch Stats",
-    "date": "Jun 2026 - Jul 2026",
+    "date": "Jun - Jul 2026",
     "imageSrc": "projects/overwatch-stats.png",
     "description": "Web app for logging Overwatch competitive matches and analyzing hero, map, and trend performance, with AI-powered scoreboard autofill.",
     "longDescription": [

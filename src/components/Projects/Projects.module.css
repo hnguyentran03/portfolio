@@ -52,6 +52,9 @@
 
 .viewAll {
     display: block;
+    /* the contact section's gradient overlaps this area — keep the pill painted above it */
+    position: relative;
+    z-index: 1;
     width: fit-content;
     margin: 40px auto 0;
     padding: 12px 36px;
