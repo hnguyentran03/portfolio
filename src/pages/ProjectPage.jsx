@@ -4,6 +4,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { NavBar } from "../components/NavBar/NavBar";
 import projects from "../data/projects.json";
 import { getImageUrl } from "../utils";
+import { ProjectContent } from "./ProjectContent";
 import styles from "./ProjectPage.module.css";
 
 export const ProjectPage = () => {
@@ -18,23 +19,7 @@ export const ProjectPage = () => {
     return <Navigate to="/projects" replace />;
   }
 
-  const {
-    title,
-    date,
-    imageSrc,
-    description,
-    skills,
-    demo,
-    source,
-    longDescription,
-    features,
-    gallery,
-  } = project;
-
-  const paragraphs =
-    Array.isArray(longDescription) && longDescription.length
-      ? longDescription
-      : [description];
+  const { title, date, imageSrc, description, skills, demo, source } = project;
 
   return (
     <>
@@ -56,44 +41,7 @@ export const ProjectPage = () => {
           alt={`Image of ${title}`}
           className={styles.heroImage}
         />
-        {paragraphs.map((paragraph, id) => {
-          return (
-            <p key={id} className={styles.paragraph}>
-              {paragraph}
-            </p>
-          );
-        })}
-        {features?.length > 0 && (
-          <>
-            <h3 className={styles.sectionTitle}>Features</h3>
-            <ul className={styles.features}>
-              {features.map((feature, id) => {
-                return (
-                  <li key={id} className={styles.feature}>
-                    {feature}
-                  </li>
-                );
-              })}
-            </ul>
-          </>
-        )}
-        {gallery?.length > 0 && (
-          <>
-            <h3 className={styles.sectionTitle}>Gallery</h3>
-            <div className={styles.gallery}>
-              {gallery.map((image, id) => {
-                return (
-                  <img
-                    key={id}
-                    src={getImageUrl(image)}
-                    alt={`Screenshot ${id + 1} of ${title}`}
-                    className={styles.galleryImage}
-                  />
-                );
-              })}
-            </div>
-          </>
-        )}
+        <ProjectContent slug={slug} fallback={description} />
         <div className={styles.links}>
           {source && (
             <a
