@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./About.module.css";
 import skills from "../../data/skills.json";
 
@@ -13,21 +11,21 @@ export const About = () => {
           <h2 className={styles.title}>About</h2>
           <div className={`${styles.aboutItems} ${styles.aboutItemText}`}>
             <p>
-              Hello! I'm <span className={styles.custom_bold}>Ben Nguyen</span>, a Computer Science graduate at Carnegie Mellon
+              Hello! I&apos;m <span className={styles.custom_bold}>Ben Nguyen</span>, a Computer Science graduate at Carnegie Mellon
               University with a concentration in Security and Privacy. During my time at CMU, I
               worked as a teaching assistant for the course 15-112: Fundamentals
               of Programming and Computer Science, and also took on the role as
               the division lead for review.
             </p>
             <p>
-              I've interned at FPT Software as an AI Engineer Intern, where I first started in December 2023, 
+              I&apos;ve interned at FPT Software as an AI Engineer Intern, where I first started in December 2023, 
               where I learned the fundamentals of machine learning, and worked on projects involving basic data annotation and machine learning models. 
               I returned for another internship from May to August 2024, where I worked on improving an embedding model, and leveraging LLMs to develop various applications.
             </p>
             <p>
-              Recently, I've taken an interest in game development, and have
-              recreated a few games in my free time. Other than that, I've also
-              tried my hand at AI/ML and incorporating them into the games I've
+              Recently, I&apos;ve taken an interest in game development, and have
+              recreated a few games in my free time. Other than that, I&apos;ve also
+              tried my hand at AI/ML and incorporating them into the games I&apos;ve
               made.
             </p>
           </div>

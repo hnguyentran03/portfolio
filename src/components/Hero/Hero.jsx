@@ -8,7 +8,6 @@ export const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
   const rotation = ["Computer Science graduate", "Software Engineer"];
   const period = 1000;
 
@@ -20,6 +19,9 @@ export const Hero = () => {
     return () => {
       clearInterval(ticker);
     };
+    // the interval only needs recreating after each tick updates `text`;
+    // listing `tick`/`delta` would restart it every render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);
 
   const tick = () => {
@@ -38,22 +40,18 @@ export const Hero = () => {
 
     if (!isDeleting && newFullText === fullText) {
       setIsDeleting(true);
-      setIndex((prevIndex) => prevIndex - 1);
       setDelta(period);
     } else if (isDeleting && newFullText === "") {
       setIsDeleting(false);
       setIteration(iteration + 1);
-      setIndex(1);
       setDelta(200);
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
     }
   };
 
   return (
     <section className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Hello, I'm Ben Nguyen</h1>
+        <h1 className={styles.title}>Hello, I&apos;m Ben Nguyen</h1>
         <p className={styles.description}>
           {" "}
           I am a{" "}

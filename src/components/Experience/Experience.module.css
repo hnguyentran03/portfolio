@@ -126,10 +126,39 @@ img {
 
     .history {
         width: 100%;
-        gap: 9px;
+        gap: 18px;
     }
-    
+
     .experienceImage {
         display: none;
+    }
+
+    .historyItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .historyItem img {
+        width: 70px;
+    }
+
+    .historyItemDetails {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .historyItemDetails h3 {
+        font-size: 22px;
+    }
+
+    .historyItemDetails p {
+        font-size: 16px;
+    }
+
+    .historyItemDetails ul {
+        font-size: 16px;
+        margin-left: 0;
     }
 }

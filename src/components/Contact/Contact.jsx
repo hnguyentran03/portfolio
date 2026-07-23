@@ -24,7 +24,7 @@ export const Contact = () => {
           setButtonText("Send");
           setStatus({ success: true, message: "Message sent successfully!" });
         },
-        (error) => {
+        () => {
           setButtonText("Send");
           setStatus({
             success: false,
@@ -80,7 +80,7 @@ export const Contact = () => {
                 <Col sm={12} className={styles.contactFormCol}>
                   <textarea
                     className={styles.contactFormTextArea}
-                    row="6"
+                    rows="6"
                     placeholder="Message"
                     name="message"
                   />
