@@ -8,7 +8,7 @@ export const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const rotation = ["Computer Science graduate", "Software Engineer"];
+  const rotation = ["Software Engineer", "CMU CS graduate"];
   const period = 1000;
 
   useEffect(() => {
