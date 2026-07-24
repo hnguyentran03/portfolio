@@ -10,7 +10,7 @@ export const Projects = () => {
 
   return (
     <section className={styles.container} id="projects">
-      <h2 className={styles.title}>Projects</h2>
+      <h2 className={styles.title}>Featured Projects</h2>
       <ProjectGrid projects={featured} />
       <Link to="/projects" className={styles.viewAll}>
         View all projects &rarr;

@@ -6,9 +6,9 @@
     "startDate": "Jan 2026",
     "endDate": "Present",
     "experiences": [
-      "Identified and verified 50+ bugs across multiple defense product lines",
       "Developed automation testing framework for Spectrum monitoring system using Playwright",
-      "Refactored legacy interfaces with manufacturing equipment to improve test reliability"
+      "Refactored legacy interfaces with manufacturing equipment to improve test reliability",
+      "Identified and verified 50+ bugs across multiple defense product lines"
     ],
     "imageSrc": "history/caci.png",
     "link": "https://www.caci.com/"
