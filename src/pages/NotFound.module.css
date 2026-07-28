@@ -1,0 +1,58 @@
+@import "../vars.css";
+
+.container {
+    padding-top: 160px;
+    color: var(--color-text-title);
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 120px;
+    /* Fill the viewport so the page background doesn't cut off on this short page */
+    min-height: 100vh;
+    text-align: center;
+}
+
+.code {
+    font-size: 90px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: var(--color-text-bold);
+    margin: 0;
+}
+
+.title {
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1.75px;
+    text-transform: uppercase;
+    margin-top: 16px;
+}
+
+.description {
+    font-size: 20px;
+    color: var(--color-text);
+    max-width: 520px;
+    margin: 20px auto 0;
+}
+
+.back {
+    display: block;
+    width: fit-content;
+    margin: 50px auto 0;
+    padding: 12px 36px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--color-text-title);
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 100px;
+    box-shadow: 0 4px 14px var(--color-shadow-soft);
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.back:hover {
+    background: var(--color-text-bold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-glow);
+}

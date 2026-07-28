@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from "./pages/Home";
 import { AllProjects } from "./pages/AllProjects";
 import { ProjectPage } from "./pages/ProjectPage";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<AllProjects />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

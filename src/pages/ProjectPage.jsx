@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { NavBar } from "../components/NavBar/NavBar";
 import projects from "../data/projects.json";
 import { getImageUrl } from "../utils";
+import { NotFound } from "./NotFound";
 import { ProjectContent } from "./ProjectContent";
 import styles from "./ProjectPage.module.css";
 
@@ -16,7 +17,7 @@ export const ProjectPage = () => {
   }, [slug]);
 
   if (!project) {
-    return <Navigate to="/projects" replace />;
+    return <NotFound />;
   }
 
   const { title, date, imageSrc, description, skills, demo, source } = project;
