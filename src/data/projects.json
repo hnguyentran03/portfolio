@@ -1,8 +1,24 @@
 [
   {
+    "slug": "onelinify",
+    "title": "Onelinify",
+    "date": "Aug 2026",
+    "imageSrc": "projects/onelinify.png",
+    "description": "Web app that compresses Python, JavaScript, and Lua snippets into a single line of pure-lambda code, built as a statement-to-expression compiler over each language's AST with Z combinators for loops and recursion and comprehension rewriting where it fits",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "Compilers",
+      "AST"
+    ],
+    "source": "https://github.com/hnguyentran03/onelinify",
+    "demo": "https://onelinify.hnguyentran.com/",
+    "featured": false
+  },
+  {
     "slug": "hollow-knight-bot",
     "title": "Hollow Knight Bot",
-    "date": "Jul 2026",
+    "date": "Jul 2026 - Aug 2026",
     "imageSrc": "projects/hollow-knight-bot.png",
     "description": "Reinforcement-learning agent that learns to fight Hornet in the real Hollow Knight game, trained with PPO through a custom C# mod that runs the game in lockstep with the trainer.",
     "skills": [

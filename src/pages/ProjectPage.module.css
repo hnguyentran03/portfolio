@@ -170,6 +170,49 @@
     color: var(--color-text-bold);
 }
 
+.markdown table {
+    display: block;
+    overflow-x: auto;
+    margin-top: 24px;
+    border-collapse: collapse;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.markdown th,
+.markdown td {
+    padding: 8px 14px;
+    border: 1px solid var(--color-secondary);
+    text-align: left;
+}
+
+.markdown th {
+    color: var(--color-text-title);
+    background-color: var(--color-dark);
+    font-weight: 600;
+}
+
+.markdown pre {
+    margin-top: 24px;
+    padding: 16px;
+    overflow-x: auto;
+    background-color: var(--color-dark);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--color-text);
+}
+
+.markdown p code,
+.markdown li code,
+.markdown td code {
+    padding: 1px 6px;
+    background-color: var(--color-dark);
+    border-radius: 6px;
+    font-size: 0.85em;
+}
+
 .media {
     display: block;
     margin: 26px auto 0;

@@ -15,10 +15,19 @@ When a custom rule is active, every built-in rule is disabled, so the decisions 
 
 ### The custom ABR rule
 
-The custom rule is a hybrid of buffer-based BBA-0 and throughput-based selection, keyed off the current buffer level. Below a 2-second critical reservoir it drops straight to the lowest rendition to avoid a stall. Between 2 and 5 seconds it plays it safe with throughput: it picks the highest rendition whose bitrate fits under 90% of dash.js's safe average throughput estimate. Once the buffer clears the reservoir, BBA-0 takes over: the buffer's position inside a 10-second cushion is mapped linearly onto the manifest's bitrate range, so quality climbs smoothly as the buffer fills, and past 15 seconds the rule commits to the highest rendition. Playback always starts at the lowest quality, and a switch request is only issued when the target rendition actually changes, which keeps the rule from thrashing.
+The custom rule is a hybrid of buffer-based BBA-0 and throughput-based selection, keyed off the current buffer level.
+
+| Buffer level | Decision |
+|---|---|
+| under 2 s | drop straight to the lowest rendition to avoid a stall |
+| 2–5 s | highest rendition fitting under 90% of dash.js's safe throughput estimate |
+| 5–15 s | BBA-0, the buffer's position mapped linearly onto the manifest's bitrate range |
+| over 15 s | commit to the highest rendition |
+
+Quality climbs smoothly as the buffer fills through the BBA-0 cushion. Playback always starts at the lowest quality, and a switch request is only issued when the target rendition actually changes, which keeps the rule from thrashing.
 
 ### Throttling below the network stack
 
 Browser dev-tools throttling doesn't help here, and dash.js v5 fetches segments over XHR rather than `fetch`, so the emulation lives in a service worker — the one place that sits below both. The worker intercepts only media-segment requests (manifests and app assets pass through untouched) and re-streams each response body through a token-bucket rate limiter that releases bytes at the capped rate, with bursts limited to about one second's allowance. The cap is re-read on every chunk, so changing the preset mid-download takes effect immediately.
 
-On top of the fixed presets (300 kbps up to 5 Mbps), a variable-bandwidth mode drives the cap with a random walk: every 500 ms it nudges the cap by a step drawn from the sum of two uniform randoms (biasing toward small moves), scaled by a configurable volatility and clamped to user-set bounds. The result is a plausibly jittery connection for stress-testing how each ABR rule handles congestion rather than a clean step function.
+On top of the fixed presets (300 kbps up to 5 Mbps), a variable-bandwidth mode drives the cap with a random walk. Every 500 ms it nudges the cap by a step drawn from the sum of two uniform randoms (biasing toward small moves), scaled by a configurable volatility and clamped to user-set bounds. The result is a plausibly jittery connection for stress-testing how each ABR rule handles congestion rather than a clean step function.

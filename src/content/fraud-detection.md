@@ -2,7 +2,7 @@ A machine learning project exploring how to detect fraud in heavily imbalanced d
 
 ## Features
 
-- End-to-end notebook pipeline: EDA, preprocessing, feature selection, resampling, tuning, evaluation
+- End-to-end notebook pipeline covering EDA, preprocessing, feature selection, resampling, tuning, and evaluation
 - SMOTE + Tomek Links resampling on the training split only, with a time-based train/validation/test split to prevent leakage
 - Random Forest, AdaBoost, and XGBoost compared, tuned with Optuna to optimize F1 on the fraud class
 - SHAP-driven feature analysis that fed back into feature engineering
@@ -15,7 +15,13 @@ Exploratory analysis surfaced the patterns the models end up leaning on: fraudul
 
 ### Class imbalance and leakage-safe evaluation
 
-With 99.4% genuine transactions, a model that never predicts fraud scores 99.4% accuracy, so accuracy is nearly meaningless here. The imbalance is handled with combined SMOTE oversampling and Tomek Links undersampling, applied to the training split only so no synthetic samples leak into evaluation. The train/validation/test split is done by time rather than randomly: the test set is the most recent ~2 months of transactions (150,481 rows, 948 fraud) that the models never saw, mimicking how a fraud model actually gets deployed against future data. On that test set Random Forest reached 0.959 precision / 0.800 recall (F1 0.872) and XGBoost 0.887 / 0.841 (F1 0.863), while AdaBoost fell far behind at 0.379 F1.
+With 99.4% genuine transactions, a model that never predicts fraud scores 99.4% accuracy, so accuracy is nearly meaningless here. The imbalance is handled with combined SMOTE oversampling and Tomek Links undersampling, applied to the training split only so no synthetic samples leak into evaluation. The train/validation/test split is done by time rather than randomly. The test set is the most recent ~2 months of transactions (150,481 rows, 948 fraud) that the models never saw, mimicking how a fraud model actually gets deployed against future data. On that test set the tuned models separated cleanly, with AdaBoost far behind.
+
+| Model | Precision | Recall | F1 |
+|---|---|---|---|
+| Random Forest | 0.959 | 0.800 | 0.872 |
+| XGBoost | 0.887 | 0.841 | 0.863 |
+| AdaBoost | – | – | 0.379 |
 
 ### Explaining predictions with SHAP
 

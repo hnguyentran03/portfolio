@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 import { getImageUrl } from "../utils";
 import styles from "./ProjectPage.module.css";
@@ -51,6 +52,7 @@ export const ProjectContent = ({ slug, fallback }) => {
   return (
     <div className={styles.markdown}>
       <Markdown
+        remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
         components={{ img: Media, iframe: Embed }}
       >
