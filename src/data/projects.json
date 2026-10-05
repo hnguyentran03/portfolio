@@ -1,5 +1,24 @@
 [
   {
+    "slug": "ow-scrims",
+    "title": "OW Scrims",
+    "date": "Sep 2026 - Oct 2026",
+    "imageSrc": "projects/ow-scrims.png",
+    "description": "Overwatch 2 scrim analytics app that ingests the per-map logs written by the ScrimTime Workshop code and turns them into fight-by-fight map breakdowns and team, player, and hero trends across scrims. Runs on embedded Postgres locally, with a public pseudonymised copy where every visitor gets a throwaway sandbox.",
+    "skills": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Playwright"
+    ],
+    "demo": "https://scrims.hnguyentran.com/",
+    "source": "https://github.com/hnguyentran03/ow_scrims",
+    "featured": false
+  },
+  {
     "slug": "onelinify",
     "title": "Onelinify",
     "date": "Aug 2026",
