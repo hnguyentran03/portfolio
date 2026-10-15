@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist', 'build', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', 'build', '.eslintrc.cjs', 'coverage', 'playwright-report', 'test-results'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
@@ -20,4 +20,20 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: [
+        '**/*.test.{js,jsx}',
+        'vitest.config.js',
+        'vitest.setup.js',
+        'src/test/**',
+        'e2e/**',
+        'playwright.config.js',
+      ],
+      env: { node: true, browser: true },
+      rules: {
+        'react-refresh/only-export-components': 'off',
+      },
+    },
+  ],
 }
