@@ -37,24 +37,25 @@ describe("Hero", () => {
 
   it("types the first phrase one character per tick", () => {
     render(<Hero />);
-    expect(rotating()).toHaveTextContent("");
+    expect(rotating().textContent).toBe("");
 
     act(() => {
       vi.advanceTimersByTime(TYPE_DELAY);
     });
-    expect(rotating()).toHaveTextContent("S");
+    expect(rotating().textContent).toBe("S");
 
     act(() => {
       vi.advanceTimersByTime(TYPE_DELAY);
     });
-    expect(rotating()).toHaveTextContent("So");
+    expect(rotating().textContent).toBe("So");
 
     for (let i = 2; i < FIRST.length; i++) {
       act(() => {
         vi.advanceTimersByTime(TYPE_DELAY);
       });
+      expect(rotating().textContent).toBe(FIRST.slice(0, i + 1));
     }
-    expect(rotating()).toHaveTextContent(FIRST);
+    expect(rotating().textContent).toBe(FIRST);
   });
 
   it("pauses after the full phrase and then starts deleting", () => {
@@ -63,18 +64,19 @@ describe("Hero", () => {
       act(() => {
         vi.advanceTimersByTime(TYPE_DELAY);
       });
+      expect(rotating().textContent).toBe(FIRST.slice(0, i + 1));
     }
-    expect(rotating()).toHaveTextContent(FIRST);
+    expect(rotating().textContent).toBe(FIRST);
 
     act(() => {
       vi.advanceTimersByTime(PAUSE - 1);
     });
-    expect(rotating()).toHaveTextContent(FIRST);
+    expect(rotating().textContent).toBe(FIRST);
 
     act(() => {
       vi.advanceTimersByTime(1);
     });
-    expect(rotating()).toHaveTextContent(FIRST.slice(0, -1));
+    expect(rotating().textContent).toBe(FIRST.slice(0, -1));
   });
 
   it("does not log to the console on every tick", () => {
