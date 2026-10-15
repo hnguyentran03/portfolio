@@ -12,12 +12,17 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const assetsDir = path.resolve(here, "../../assets");
 const contentDir = path.resolve(here, "../content");
 
-// Exact, case-sensitive existence check. macOS would let "Projects/Foo.PNG"
-// pass fs.existsSync while S3 serves a 404.
+// Exact, case-sensitive existence check. The whole path is matched exactly,
+// segment by segment: macOS would let "Projects/Foo.PNG" pass fs.existsSync
+// while S3 serves a 404.
 const assetExists = (relPath) => {
-  const dir = path.join(assetsDir, path.dirname(relPath));
-  if (!fs.existsSync(dir)) return false;
-  return fs.readdirSync(dir).includes(path.basename(relPath));
+  let dir = assetsDir;
+  for (const segment of relPath.split("/")) {
+    if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) return false;
+    if (!fs.readdirSync(dir).includes(segment)) return false;
+    dir = path.join(dir, segment);
+  }
+  return true;
 };
 
 const contentSlugs = fs
