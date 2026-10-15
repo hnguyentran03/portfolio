@@ -28,7 +28,16 @@
 .project {
     flex-shrink: 0;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    width: 420px;
     max-width: 100%;
+}
+
+/* Featured section: wraps like the base layout, but capped at three cards (3 x 420px + 2 x 15px gap) per row */
+.threeColumns {
+    display: flex;
+    max-width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .projects:has(.project:hover) .project:not(:hover) {

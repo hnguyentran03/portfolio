@@ -5,7 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 
 const TRANSITION_MS = 300;
 
-export const ProjectGrid = ({ projects }) => {
+export const ProjectGrid = ({ projects, className = "" }) => {
   const [hoveredId, setHoveredId] = useState(null);
   const leaveTimeoutRef = useRef(null);
 
@@ -25,7 +25,7 @@ export const ProjectGrid = ({ projects }) => {
   };
 
   return (
-    <div className={styles.projects}>
+    <div className={`${styles.projects} ${className}`.trim()}>
       {projects.map((project, id) => (
         <div
           key={id}
