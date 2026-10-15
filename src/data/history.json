@@ -7,6 +7,7 @@
     "endDate": "Present",
     "experiences": [
       "Developed automation testing framework for Spectrum monitoring system using Playwright",
+      "Built CI/CD pipeline with a self-hosted GitLab runner on a dedicated Linux server",
       "Refactored legacy interfaces with manufacturing equipment to improve test reliability",
       "Identified and verified 50+ bugs across multiple defense product lines"
     ],
