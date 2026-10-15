@@ -8,7 +8,8 @@ afterEach(() => {
 });
 
 // jsdom logs "Not implemented: window.scrollTo" otherwise. Fresh spy per test
-// so pages can assert it was called on mount.
+// so pages can assert it was called on mount. Files declaring
+// `// @vitest-environment node` share this setup file, so guard the window access.
 beforeEach(() => {
-  window.scrollTo = vi.fn();
+  if (typeof window !== "undefined") window.scrollTo = vi.fn();
 });
