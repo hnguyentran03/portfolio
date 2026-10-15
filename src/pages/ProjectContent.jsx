@@ -42,6 +42,18 @@ const Embed = ({ node: _node, ...props }) => (
   </div>
 );
 
+export const ProjectMarkdown = ({ content }) => (
+  <div className={styles.markdown}>
+    <Markdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+      components={{ img: Media, iframe: Embed }}
+    >
+      {content}
+    </Markdown>
+  </div>
+);
+
 export const ProjectContent = ({ slug, fallback }) => {
   const content = contentBySlug[slug];
 
@@ -49,15 +61,5 @@ export const ProjectContent = ({ slug, fallback }) => {
     return <p className={styles.paragraph}>{fallback}</p>;
   }
 
-  return (
-    <div className={styles.markdown}>
-      <Markdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
-        components={{ img: Media, iframe: Embed }}
-      >
-        {content}
-      </Markdown>
-    </div>
-  );
+  return <ProjectMarkdown content={content} />;
 };
