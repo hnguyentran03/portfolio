@@ -1,6 +1,7 @@
 import { test, expect, expectAllImagesLoaded, projects } from "./fixtures";
 
 const first = projects[0];
+const markdownBody = (page) => page.locator('section [class*="markdown"]');
 const cardFor = (page, title) =>
   page.locator("[role='link']").filter({ has: page.getByRole("heading", { level: 3, name: title, exact: true }) });
 
@@ -60,7 +61,8 @@ test.describe("project page", () => {
 
   test("renders the markdown body, skills, and external links without clicking them", async ({ page }) => {
     await page.goto(`/projects/${first.slug}`);
-    await expect(page.locator("section p").first()).toBeVisible();
+    await expect(markdownBody(page)).toBeVisible();
+    await expect(markdownBody(page).locator("> *").first()).toBeVisible();
     for (const skill of first.skills) {
       await expect(page.getByRole("listitem").filter({ hasText: skill }).first()).toBeVisible();
     }
@@ -82,7 +84,7 @@ test.describe("project page", () => {
     for (const project of projects) {
       await page.goto(`/projects/${project.slug}`);
       await expect(page.getByRole("heading", { level: 2, name: project.title })).toBeVisible();
-      await expect(page.locator("section p, section h2, section h3").first()).toBeVisible();
+      await expect(markdownBody(page).locator("> *").first()).toBeVisible();
     }
   });
 });
