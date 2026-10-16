@@ -10,11 +10,6 @@ export const test = base.extend({
     const failed = [];
     page.on("requestfailed", (req) => failed.push(`FAILED ${req.url()}`));
     page.on("response", (res) => {
-      // index.html links the icon as ./public/favicon.ico, which does not
-      // exist in the built output (public/ files are served from /). That is a
-      // pre-existing bug outside this plan's scope; keep it from masking real
-      // asset failures.
-      if (res.url().includes("favicon")) return;
       if (res.status() >= 400) failed.push(`${res.status()} ${res.url()}`);
     });
     await use(failed);

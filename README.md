@@ -17,3 +17,5 @@ npm run test:e2e    # end-to-end tests (Playwright, builds and serves the site f
 ```
 
 `npm run test:e2e:prod` runs only the `@smoke` specs against the live site and skips the contact form. The e2e runner builds into a scratch `.e2e-build` directory and leaves the tracked `build/` alone.
+
+GitHub Actions runs lint, the unit tests, and the e2e suite on every pull request and on pushes to `main` (`.github/workflows/test.yml`). A failed e2e run uploads the Playwright HTML report as a workflow artifact.
