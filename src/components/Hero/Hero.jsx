@@ -32,7 +32,6 @@ export const Hero = () => {
       : fullText.substring(0, text.length + 1);
 
     setText(newFullText);
-    console.log(newFullText);
 
     if (isDeleting) {
       setDelta((prevDelta) => prevDelta < 25 ? 25 : prevDelta / 2);

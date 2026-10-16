@@ -10,7 +10,13 @@
     "deploy": "aws s3 sync build s3://portfolio-692227917845-us-east-1-an --delete && aws cloudfront create-invalidation --distribution-id E2K4Z2U2N6IEKA --paths '/*'",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:prod": "E2E_BASE_URL=https://hnguyentran.com playwright test --grep @smoke"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
@@ -32,15 +38,22 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@types/jquery": "^3.5.29",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^3.2.7",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "gh-pages": "^6.1.1",
-    "vite": "^5.1.0"
+    "jsdom": "^29.1.1",
+    "vite": "^5.1.0",
+    "vitest": "^3.2.7"
   }
 }

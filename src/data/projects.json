@@ -63,6 +63,7 @@
       "Unity Modding",
       "TCP Sockets"
     ],
+    "demo": "",
     "source": "https://github.com/hnguyentran03/hollow_knight_bot",
     "featured": true
   },
@@ -128,7 +129,8 @@
       "SQL"
     ],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/integrity-check"
+    "source": "https://github.com/hnguyentran03/integrity-check",
+    "featured": false
   },
   {
     "slug": "pdf-translator",
@@ -141,7 +143,8 @@
       "OpenAI"
     ],
     "demo": "",
-    "source": "https://github.com/hnguyentran03/pdf-translator"
+    "source": "https://github.com/hnguyentran03/pdf-translator",
+    "featured": false
   },
   {
     "slug": "game-embeddings",
@@ -154,7 +157,8 @@
       "ML"
     ],
     "demo": "https://game-embeddings-h6vxvexnktqdz4rwug9qv4.streamlit.app/",
-    "source": "https://github.com/hnguyentran03/game-embeddings"
+    "source": "https://github.com/hnguyentran03/game-embeddings",
+    "featured": false
   },
   {
     "slug": "fraud-detection",
@@ -167,7 +171,8 @@
       "ML"
     ],
     "demo": "https://carddetection-iswurjrr9vtq25pagmpjrr.streamlit.app/",
-    "source": "https://github.com/hnguyentran03/card_detection"
+    "source": "https://github.com/hnguyentran03/card_detection",
+    "featured": false
   },
   {
     "slug": "tetris",
