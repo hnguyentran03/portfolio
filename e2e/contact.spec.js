@@ -30,8 +30,7 @@ test.describe("contact form", () => {
       ["subject", "Playwright test"],
       ["message", "This request was intercepted."],
     ]) {
-      expect(body).toContain(`name="${field}"`);
-      expect(body).toContain(value);
+      expect(body).toContain(`name="${field}"\r\n\r\n${value}\r\n`);
     }
   });
 
