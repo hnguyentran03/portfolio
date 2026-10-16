@@ -5,7 +5,7 @@ test.describe("home page", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1, name: "Hello, I'm Ben Nguyen" })).toBeVisible();
     for (const id of ["about", "experience", "projects", "contact"]) {
-      await expect(page.locator(`section#${id}`)).toBeAttached();
+      await expect(page.locator(`section#${id}`)).toBeVisible();
     }
     await expectAllImagesLoaded(page);
     expect(failedRequests).toEqual([]);

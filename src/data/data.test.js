@@ -52,7 +52,7 @@ describe("projects.json", () => {
   });
 
   it.each(projects.map((p) => [p.slug, p.imageSrc]))("%s image exists in assets/", (_slug, imageSrc) => {
-    expect(assetExists(imageSrc)).toBe(true);
+    expect(assetExists(imageSrc), `missing asset ${imageSrc}`).toBe(true);
   });
 
   it.each(projects.map((p) => [p.slug]))("%s has a content file", (slug) => {
@@ -77,14 +77,14 @@ describe("history.json", () => {
     expect(typeof h.endDate).toBe("string");
     expect(Array.isArray(h.experiences)).toBe(true);
     expect(h.link).toMatch(/^https:\/\//);
-    expect(assetExists(h.imageSrc)).toBe(true);
+    expect(assetExists(h.imageSrc), `missing asset ${h.imageSrc}`).toBe(true);
   });
 });
 
 describe("skills.json", () => {
   it.each(skills.map((s) => [s.title, s]))("%s is well-formed", (_title, s) => {
     expect(typeof s.title).toBe("string");
-    expect(assetExists(s.imageSrc)).toBe(true);
+    expect(assetExists(s.imageSrc), `missing asset ${s.imageSrc}`).toBe(true);
   });
 
   it("has unique titles", () => {

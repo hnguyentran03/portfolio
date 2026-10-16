@@ -1,6 +1,7 @@
 import { test, expect, expectAllImagesLoaded, projects } from "./fixtures";
 
 const first = projects[0];
+const stable = projects[projects.length - 1];
 const markdownBody = (page) => page.locator('section [class*="markdown"]');
 const cardFor = (page, title) =>
   page.locator("[role='link']").filter({ has: page.getByRole("heading", { level: 3, name: title, exact: true }) });
@@ -46,37 +47,35 @@ test.describe("projects list", () => {
 
 test.describe("project page", () => {
   test("deep link renders the project directly @smoke", async ({ page, failedRequests }) => {
-    const response = await page.goto(`/projects/${first.slug}`);
+    const response = await page.goto(`/projects/${stable.slug}`);
     expect(response.status()).toBe(200);
-    await expect(page.getByRole("heading", { level: 2, name: first.title })).toBeVisible();
-    await expect(page.getByRole("img", { name: `Image of ${first.title}` })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 2, name: stable.title })).toBeVisible();
+    await expect(page.getByRole("img", { name: `Image of ${stable.title}` })).toBeVisible();
     await expectAllImagesLoaded(page);
     expect(failedRequests).toEqual([]);
   });
 
   test("deep link with a trailing slash also renders the project", async ({ page }) => {
-    await page.goto(`/projects/${first.slug}/`);
-    await expect(page.getByRole("heading", { level: 2, name: first.title })).toBeVisible();
+    await page.goto(`/projects/${stable.slug}/`);
+    await expect(page.getByRole("heading", { level: 2, name: stable.title })).toBeVisible();
   });
 
   test("renders the markdown body, skills, and external links without clicking them", async ({ page }) => {
-    await page.goto(`/projects/${first.slug}`);
+    const linked = projects.find((p) => p.source && p.demo);
+    expect(linked).toBeDefined();
+    await page.goto(`/projects/${linked.slug}`);
     await expect(markdownBody(page)).toBeVisible();
     await expect(markdownBody(page).locator("> *").first()).toBeVisible();
-    for (const skill of first.skills) {
-      await expect(page.getByRole("listitem").filter({ hasText: skill }).first()).toBeVisible();
+    for (const skill of linked.skills) {
+      await expect(page.getByRole("listitem").and(page.getByText(skill, { exact: true })).first()).toBeVisible();
     }
-    if (first.source) {
-      const source = page.getByRole("link", { name: "Source" });
-      await expect(source).toHaveAttribute("href", first.source);
-      await expect(source).toHaveAttribute("target", "_blank");
-      await expect(source).toHaveAttribute("rel", "noopener noreferrer");
-    }
-    if (first.demo) {
-      const demo = page.getByRole("link", { name: "Demo" });
-      await expect(demo).toHaveAttribute("href", first.demo);
-      await expect(demo).toHaveAttribute("target", "_blank");
-    }
+    const source = page.getByRole("link", { name: "Source" });
+    await expect(source).toHaveAttribute("href", linked.source);
+    await expect(source).toHaveAttribute("target", "_blank");
+    await expect(source).toHaveAttribute("rel", "noopener noreferrer");
+    const demo = page.getByRole("link", { name: "Demo" });
+    await expect(demo).toHaveAttribute("href", linked.demo);
+    await expect(demo).toHaveAttribute("target", "_blank");
   });
 
   test("every project page renders its title and at least one body element", async ({ page }) => {

@@ -7,7 +7,7 @@ test.describe("404 page", () => {
     // comes back 200 and the client renders the 404 copy (see CLAUDE.md).
     expect(response.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 2, name: "Page Not Found" })).toBeVisible();
-    await expect(page.getByText("404")).toBeVisible();
+    await expect(page.getByText("404", { exact: true })).toBeVisible();
   });
 
   test("unknown project slug renders the 404 page @smoke", async ({ page }) => {

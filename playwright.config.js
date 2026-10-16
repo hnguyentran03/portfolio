@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const external = process.env.E2E_BASE_URL;
-const baseURL = external || "http://localhost:4173";
+const baseURL = external || "http://localhost:4174";
 
 export default defineConfig({
   testDir: "e2e",
@@ -14,12 +14,13 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
-  // Production build, not the dev server: this is what ships to S3.
+  // Production build, not the dev server: this is what ships to S3. It is built
+  // into .e2e-build so the tracked build/ is untouched.
   webServer: external
     ? undefined
     : {
-        command: "npm run build && npm run preview -- --port 4173 --strictPort",
-        url: "http://localhost:4173",
+        command: "npx vite build --outDir .e2e-build && npx vite preview --outDir .e2e-build --port 4174 --strictPort",
+        url: "http://localhost:4174",
         reuseExistingServer: !process.env.CI,
         timeout: 120_000,
       },

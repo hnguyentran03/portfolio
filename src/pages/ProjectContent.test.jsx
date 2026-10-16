@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 
 import { ProjectContent, ProjectMarkdown } from "./ProjectContent";
 import projects from "../data/projects.json";
+import styles from "./ProjectPage.module.css";
 
 describe("ProjectMarkdown", () => {
   it("renders headings and GFM tables", () => {
@@ -40,7 +41,7 @@ describe("ProjectMarkdown", () => {
     );
     const iframe = container.querySelector("iframe");
     expect(iframe).toHaveAttribute("src", "https://www.youtube.com/embed/abc");
-    expect(iframe.parentElement.tagName).toBe("DIV");
+    expect(iframe.parentElement).toHaveClass(styles.embed);
   });
 });
 
